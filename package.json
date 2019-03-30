@@ -9,9 +9,6 @@
     "test": "jest --forceExit",
     "heroku-postbuild": "NPM_CONFIG_PRODUCTION=false npm install --prefix client && npm run build --prefix client"
   },
-  "proxy": {
-    "/api": "http://localhost:8000/api/"
-  },
   "jest": {
     "setupTestFrameworkScriptFile": "./tests/setup.js"
   },

@@ -4,6 +4,7 @@ const cors = require('cors');
 const cookieSession = require('cookie-session');
 const passport = require('passport');
 const bodyParser = require('body-parser');
+const path = require('path');
 require('dotenv').config();
 
 require('./models/user.model');
@@ -28,17 +29,11 @@ app.use(cors());
 require('./routes/auth.routes')(app);
 require('./routes/user.routes')(app);
 
-if (process.env.NODE_ENV === 'production') {
-  // Express will serve prod assets i.e. main.js/main.class
-  app.use(express.static('client/build')); // If a route is unrecognized, look at react build
+app.use(express.static(__dirname + '/build'));
 
-  // Express will serve up index.html if it doesn't recognize the route
-  const path = require('path');
-  app.get('*', (req, res) => {
-    // Serve the client the document in that case
-    res.sendFile(path.resolve(__dirname, 'client', 'build', 'index.html'));
-  });
-}
+app.get('/*', function(req, res) {
+  res.sendFile(path.join(__dirname + '/build/index.html'));
+});
 
 const PORT = process.env.PORT;
 app.listen(PORT, () => {
