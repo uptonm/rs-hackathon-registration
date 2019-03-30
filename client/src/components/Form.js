@@ -1,67 +1,68 @@
-import React, { Component } from "react";
-import { connect } from "react-redux";
-import { putUser } from "../actions/index";
-import Input from "./InputField";
-import SelectInput from "./SelectField";
-import "bootstrap/dist/css/bootstrap.min.css";
+import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import { putUser } from '../actions/index';
+import Input from './InputField';
+import SelectInput from './SelectField';
+import 'bootstrap/dist/css/bootstrap.min.css';
+import '../Form.css';
 class Form extends Component {
   state = {
     first: {
-      id: "first",
-      label: "First Name",
-      placeHolder: "Enter First Name",
-      value: ""
+      id: 'first',
+      label: 'First Name',
+      placeHolder: 'Enter First Name',
+      value: ''
     },
     last: {
-      id: "last",
-      label: "Last Name",
-      placeHolder: "Enter Last Name",
-      value: ""
+      id: 'last',
+      label: 'Last Name',
+      placeHolder: 'Enter Last Name',
+      value: ''
     },
     email: {
-      id: "email",
-      label: "Email",
-      placeHolder: "Enter Email",
-      value: ""
+      id: 'email',
+      label: 'Email',
+      placeHolder: 'Enter Email',
+      value: ''
     },
     phone: {
-      id: "phone",
-      label: "Phone Number",
-      placeHolder: "Enter Phone Number",
-      value: ""
+      id: 'phone',
+      label: 'Phone Number',
+      placeHolder: 'Enter Phone Number',
+      value: ''
     },
     school: {
-      id: "school",
-      label: "School",
-      placeHolder: "Enter School",
-      value: "",
-      other: ""
+      id: 'school',
+      label: 'School',
+      placeHolder: 'Enter School',
+      value: '',
+      other: ''
     },
     major: {
-      id: "major",
-      label: "Major",
-      placeHolder: "Enter Major",
-      value: ""
+      id: 'major',
+      label: 'Major',
+      placeHolder: 'Enter Major',
+      value: ''
     },
     dietaryRestrictions: {
-      id: "dietaryRestrictions",
-      label: "Dietary Restrictions",
-      placeHolder: "Enter Dietary Restrictions",
-      value: ""
+      id: 'dietaryRestrictions',
+      label: 'Dietary Restrictions',
+      placeHolder: 'Enter Dietary Restrictions',
+      value: ''
     },
     waiverSigned: {
-      id: "waiver",
-      label: "I agree to the terms listed in the ",
+      id: 'waiver',
+      label: 'I agree to the terms listed in the ',
       value: false
     },
     conductSigned: {
-      id: "conduct",
-      label: "I agree to the ",
+      id: 'conduct',
+      label: 'I agree to the ',
       value: false
     },
     errors: {
-      email: "",
-      phone: ""
+      email: '',
+      phone: ''
     },
     doOnce: 0
   };
@@ -85,14 +86,14 @@ class Form extends Component {
       last: last.value,
       email: email.value,
       phone: phone.value,
-      school: school.value !== "other" ? school.value : school.other,
+      school: school.value !== 'other' ? school.value : school.other,
       major: major.value,
       dietaryRestrictions: dietaryRestrictions.value,
       waiverSigned: waiverSigned.value,
       conductSigned: conductSigned.value
     };
     await putUser(this.props.auth._id, data);
-    this.props.history.push("/post-sign-in");
+    this.props.history.push('/post-sign-in');
   };
 
   renderContent() {
@@ -111,7 +112,7 @@ class Form extends Component {
       },
       school: {
         ...this.state.school,
-        value: this.props.auth.school !== "gmail" ? this.props.auth.school : ""
+        value: this.props.auth.school !== 'gmail' ? this.props.auth.school : ''
       }
     });
   }
@@ -129,69 +130,69 @@ class Form extends Component {
 
   validateEmail() {
     let email = this.state.email.value;
-    let error = "";
+    let error = '';
     if (email.match(/^([\w.%+-]+)@([\w-]+\.)+([\w]{2,})$/i)) {
-      error = "";
+      error = '';
     } else {
-      error = "Invalid Email";
+      error = 'Invalid Email';
     }
     return error;
   }
 
   validatePhone() {
     let phone = this.state.phone.value;
-    let error = "";
+    let error = '';
     if (phone.match(/^[(]?[0-9]{3}[)]?[-\s.]?[0-9]{3}[-/\s.]?[0-9]{4}$/)) {
-      error = "";
+      error = '';
     } else {
-      error = "Invalid Phone Number";
+      error = 'Invalid Phone Number';
     }
     return error;
   }
 
   validateSchool() {
     let school = this.state.school.value;
-    let error = "";
-    if (school === "other") {
+    let error = '';
+    if (school === 'other') {
       school = this.state.school.other;
     }
     if (school.length > 0) {
-      error = "";
+      error = '';
     } else {
-      error = "School is Required";
+      error = 'School is Required';
     }
     return error;
   }
 
   validateMajor() {
     let major = this.state.major.value;
-    let error = "";
+    let error = '';
     if (major.length > 0) {
-      error = "";
+      error = '';
     } else {
-      error = "Major is required";
+      error = 'Major is required';
     }
     return error;
   }
 
   validateFirst() {
     let first = this.state.first.value;
-    let error = "";
+    let error = '';
     if (first.length > 0) {
-      error = "";
+      error = '';
     } else {
-      error = "First Name is required";
+      error = 'First Name is required';
     }
     return error;
   }
 
   validateLast() {
     let last = this.state.last.value;
-    let error = "";
+    let error = '';
     if (last.length > 0) {
-      error = "";
+      error = '';
     } else {
-      error = "Last Name is required";
+      error = 'Last Name is required';
     }
     return error;
   }
@@ -205,12 +206,12 @@ class Form extends Component {
     errors.first = this.validateFirst();
     errors.last = this.validateLast();
     if (
-      errors.email === "" &&
-      errors.phone === "" &&
-      errors.major === "" &&
-      errors.school === "" &&
-      errors.first === "" &&
-      errors.last === "" &&
+      errors.email === '' &&
+      errors.phone === '' &&
+      errors.major === '' &&
+      errors.school === '' &&
+      errors.first === '' &&
+      errors.last === '' &&
       this.state.conductSigned.value &&
       this.state.waiverSigned.value
     ) {
@@ -304,7 +305,7 @@ class Form extends Component {
                 })
               }
             />
-            {this.state.school.value === "other" ? (
+            {this.state.school.value === 'other' ? (
               <Input
                 id={this.state.school.id}
                 label={this.state.school.label}
@@ -369,7 +370,7 @@ class Form extends Component {
                 className="form-check-label"
                 htmlFor={this.state.waiverSigned.id}
               >
-                {this.state.waiverSigned.label}{" "}
+                {this.state.waiverSigned.label}{' '}
                 <a href="https://hackwit.us/liability-waiver/">
                   HackWITus Liability Waiver
                 </a>
@@ -395,7 +396,7 @@ class Form extends Component {
                 className="form-check-label"
                 htmlFor={this.state.conductSigned.id}
               >
-                {this.state.conductSigned.label}{" "}
+                {this.state.conductSigned.label}{' '}
                 <a href="https://hackwit.us/code_of_conduct/">
                   HackWITus Code of Conduct
                 </a>
@@ -414,7 +415,7 @@ class Form extends Component {
           <button
             type="submit"
             className={`btn btn-lg ${
-              this.canSubmit() ? "" : "btn-success"
+              this.canSubmit() ? '' : 'btn-success'
             } float-right`}
             disabled={this.canSubmit()}
           >

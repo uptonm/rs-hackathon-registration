@@ -1,5 +1,5 @@
-import React from "react";
-import logo from "../assets/leologo-web.png";
+import React from 'react';
+import logo from '../assets/RocketBuildLogo.png';
 
 export default () => {
   return (
@@ -7,7 +7,7 @@ export default () => {
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
         <p>
-          Welcome to <code>HackWITus2018</code> login below
+          Welcome to <code>Rocket.Build Community</code> login below
         </p>
         <a
           className="App-link"

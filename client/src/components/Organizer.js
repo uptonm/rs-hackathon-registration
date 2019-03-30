@@ -1,6 +1,6 @@
-import React, { Component } from "react";
-import { fetchUsers, putUser } from "../actions/index";
-import hackwitusLogo from "../assets/leologo-web.png";
+import React, { Component } from 'react';
+import { fetchUsers, putUser } from '../actions/index';
+import logo from '../assets/RocketBuildLogo.png';
 
 class Organizer extends Component {
   state = {
@@ -61,8 +61,7 @@ class Organizer extends Component {
   renderUserCount() {
     return (
       <button className="btn btn-outline-secondary my-2 my-sm-0">
-        <strong>{Object.keys(this.state.users).length - 4}</strong> Users
-        Signed-In
+        <strong>{Object.keys(this.state.users).length}</strong> Users Signed-In
       </button>
     );
   }
@@ -75,16 +74,8 @@ class Organizer extends Component {
           Refresh
             </button> */}
         <nav className="navbar navbar-light bg-light">
-          <a href="https://hackwit.us" className="navbar-brand">
-            <img
-              src={hackwitusLogo}
-              width="30"
-              height="30"
-              className="d-inline-block align-top"
-              alt=""
-              style={{ marginRight: "0.5em" }}
-            />
-            HackWITus Hackers
+          <a href="/" className="navbar-brand">
+            Rocket.Build Hackers
           </a>
           {this.renderUserCount()}
           <ul className="navbar-nav">
@@ -92,7 +83,7 @@ class Organizer extends Component {
               onClick={this.refreshUsers}
               className="btn btn-outline-secondary my-2 my-sm-0"
             >
-              <i className="fas fa-sync" style={{ marginRight: "0.5em" }} />
+              <i className="fas fa-sync" style={{ marginRight: '0.5em' }} />
               Refresh
             </button>
           </ul>
