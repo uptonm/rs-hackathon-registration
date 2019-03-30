@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import { fetchUsers, putUser } from '../actions/index';
-import logo from '../assets/RocketBuildLogo.png';
 
 class Organizer extends Component {
   state = {
