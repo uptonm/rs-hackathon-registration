@@ -23,8 +23,7 @@ consoleOutput = (route, request, status) => {
 };
 
 exports.get = async (req, res) => {
-  console.log(req.user + "\n\n\n\n\n");
-  if (req.query.key === process.env.QUERYKEY) {
+  if (req.user && req.user.organizer === true) {
     const exists = await User.find({});
     if (exists && exists.length > 0) {
       consoleOutput("/api/users", "GET", 200);
@@ -39,7 +38,7 @@ exports.get = async (req, res) => {
 };
 
 exports.getOne = async (req, res) => {
-  if (req.query.key === process.env.QUERYKEY) {
+  if (req.user && req.user._id === req.params.id) {
     const exists = await User.findById(req.params.id);
     if (exists) {
       consoleOutput(`/api/users/${req.params.id}`, "GET", 200);
@@ -54,7 +53,7 @@ exports.getOne = async (req, res) => {
 };
 
 exports.post = async (req, res) => {
-  if (req.query.key === process.env.QUERYKEY) {
+  if (req.user) {
     const exists = await User.findOne(req.body);
     if (!exists || exists.length === 0) {
       const user = await new User(req.body).save();
@@ -70,7 +69,7 @@ exports.post = async (req, res) => {
 };
 
 exports.put = async (req, res) => {
-  if (req.query.key === process.env.QUERYKEY) {
+  if (req.user && req.user._id === req.params.id) {
     const exists = await User.findById(req.params.id);
     if (exists) {
       const update = await User.findByIdAndUpdate(exists._id, req.body);
@@ -86,7 +85,7 @@ exports.put = async (req, res) => {
 };
 
 exports.delete = async (req, res) => {
-  if (req.query.key === process.env.QUERYKEY) {
+  if (req.user && req.user._id === req.params.id) {
     const exists = await User.findById(req.params.id);
     if (exists) {
       const response = await User.findByIdAndDelete(exists._id);
