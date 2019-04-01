@@ -19,5 +19,4 @@ export const putUser = async (id, data) => {
     data
   );
   return res.data;
-  //console.log({ type: PUT_USER, payload: res.data });
 };

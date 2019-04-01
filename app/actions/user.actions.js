@@ -63,7 +63,7 @@ exports.post = async (req, res) => {
     consoleOutput("/api/users", "POST", 400);
     return res.status(400).send(error[400]);
   } else {
-    consoleOutput("/api/users", "GET", 403);
+    consoleOutput("/api/users", "POST", 403);
     return res.status(403).send(error[403]);
   }
 };
@@ -79,7 +79,7 @@ exports.put = async (req, res) => {
     consoleOutput(`/api/users${req.params.id}`, "PUT", 404);
     return res.status(404).send(error[404]);
   } else {
-    consoleOutput("/api/users", "GET", 403);
+    consoleOutput("/api/users", "PUT", 403);
     return res.status(403).send(error[403]);
   }
 };
@@ -95,7 +95,7 @@ exports.delete = async (req, res) => {
     consoleOutput(`/api/users/${req.params.id}`, "DELETE", 404);
     return res.status(404).send(error[404]);
   } else {
-    consoleOutput("/api/users", "GET", 403);
+    consoleOutput("/api/users", "DELETE", 403);
     return res.status(403).send(error[403]);
   }
 };
