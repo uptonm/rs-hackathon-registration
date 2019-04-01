@@ -23,6 +23,7 @@ consoleOutput = (route, request, status) => {
 };
 
 exports.get = async (req, res) => {
+  console.log(req.user + "\n\n\n\n\n");
   if (req.query.key === process.env.QUERYKEY) {
     const exists = await User.find({});
     if (exists && exists.length > 0) {
