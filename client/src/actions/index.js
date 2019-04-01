@@ -15,8 +15,8 @@ export const fetchUsers = async () => {
 
 export const putUser = async (id, data) => {
   const res = await axios.put(
-    `/api/users/${id}/?key=${process.env.REACT_APP_QUERYKEY}`,
-    data
+    `/api/users/${id}`,
+    {key: process.env.REACT_APP_QUERYKEY, ...data}
   );
   return res.data;
 };
