@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import { Link } from 'react-router-dom';
 import { putUser } from '../actions/index';
 import Input from './InputField';
 import SelectInput from './SelectField';
@@ -57,7 +58,7 @@ class Form extends Component {
     },
     conductSigned: {
       id: 'conduct',
-      label: 'I agree to the ',
+      label: 'I have registered for this hackathon at',
       value: false
     },
     errors: {
@@ -371,9 +372,9 @@ class Form extends Component {
                 htmlFor={this.state.waiverSigned.id}
               >
                 {this.state.waiverSigned.label}{' '}
-                <a href="https://hackwit.us/liability-waiver/">
-                  HackWITus Liability Waiver
-                </a>
+                <Link to="/liability-waiver">
+                  Rocket Software Liability Waiver
+                </Link>
               </label>
             </div>
 
@@ -397,8 +398,8 @@ class Form extends Component {
                 htmlFor={this.state.conductSigned.id}
               >
                 {this.state.conductSigned.label}{' '}
-                <a href="https://hackwit.us/code_of_conduct/">
-                  HackWITus Code of Conduct
+                <a href="https://www.rocketsoftware.com/rocketbuild-community">
+                  Rocket Software Registration
                 </a>
               </label>
             </div>

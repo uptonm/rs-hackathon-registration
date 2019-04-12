@@ -1,13 +1,14 @@
-import React, { Component } from "react";
-import { BrowserRouter, Route } from "react-router-dom";
-import { connect } from "react-redux";
-import Landing from "./Landing";
-import FormSubmit from "./Form-Submit";
-import Form from "./Form";
-import Organizer from "./Organizer";
-import Unauthorized from "./Unauthorized";
-import * as actions from "../actions";
-import '@fortawesome/fontawesome-free/css/all.min.css'
+import React, { Component } from 'react';
+import { BrowserRouter, Route } from 'react-router-dom';
+import { connect } from 'react-redux';
+import Landing from './Landing';
+import FormSubmit from './Form-Submit';
+import Form from './Form';
+import Organizer from './Organizer';
+import Unauthorized from './Unauthorized';
+import * as actions from '../actions';
+import '@fortawesome/fontawesome-free/css/all.min.css';
+import Liability from './Liability';
 
 class App extends Component {
   componentDidMount() {
@@ -35,6 +36,7 @@ class App extends Component {
             <Route path="/follow-up" component={Form} />
             <Route path="/post-sign-in" component={FormSubmit} />
             <Route path="/organizer" component={this.isAuthorized()} />
+            <Route path="/liability-waiver" component={Liability} />
           </main>
         </BrowserRouter>
       </div>
