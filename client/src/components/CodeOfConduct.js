@@ -66,7 +66,9 @@ export default () => {
       <h1 className="display-4">Considerations</h1>
       <p>
         This Code of Conduct was inspired by MLH’s CoC and written in
-        coordination with Wentworth’s Diversity Center. If you have any questions about this document email <a href="mailto:dells@wit.edu">dells@wit.edu</a>
+        coordination with Wentworth’s Diversity Center. If you have any
+        questions about this document email{' '}
+        <a href="mailto:dells@wit.edu">dells@wit.edu</a>
       </p>
     </div>
   );
