@@ -9,6 +9,7 @@ import Unauthorized from './Unauthorized';
 import * as actions from '../actions';
 import '@fortawesome/fontawesome-free/css/all.min.css';
 import Liability from './Liability';
+import CodeOfConduct from './CodeOfConduct';
 
 class App extends Component {
   componentDidMount() {
@@ -37,6 +38,7 @@ class App extends Component {
             <Route path="/post-sign-in" component={FormSubmit} />
             <Route path="/organizer" component={this.isAuthorized()} />
             <Route path="/liability-waiver" component={Liability} />
+            <Route path="/code_of_conduct" component={CodeOfConduct} />
           </main>
         </BrowserRouter>
       </div>

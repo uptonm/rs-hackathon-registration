@@ -372,8 +372,8 @@ class Form extends Component {
                 htmlFor={this.state.waiverSigned.id}
               >
                 {this.state.waiverSigned.label}{' '}
-                <Link to="/liability-waiver">
-                  Rocket Software Liability Waiver
+                <Link to="/code_of_conduct">
+                  Code of Conduct
                 </Link>
               </label>
             </div>
