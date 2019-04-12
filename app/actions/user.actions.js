@@ -69,7 +69,7 @@ exports.post = async (req, res) => {
 };
 
 exports.put = async (req, res) => {
-  if (req.query.key === process.env.QUERYKEY) {
+  if (req.body.key === process.env.QUERYKEY) {
     const exists = await User.findById(req.params.id);
     if (exists) {
       const update = await User.findByIdAndUpdate(exists._id, req.body);

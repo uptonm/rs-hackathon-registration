@@ -6,8 +6,7 @@
   "scripts": {
     "start": "node ./app",
     "dev": "nodemon ./app",
-    "test": "jest --forceExit",
-    "heroku-postbuild": "NPM_CONFIG_PRODUCTION=false npm install --prefix client && npm run build --prefix client"
+    "test": "jest --forceExit"
   },
   "jest": {
     "setupTestFrameworkScriptFile": "./tests/setup.js"
